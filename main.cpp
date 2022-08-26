@@ -3,7 +3,8 @@
 #ifdef _WIN32
 #include <Windows.h>
 #define EntryMessage "PassKey program wrote by Linkruste (Matheo Allart). Press \"ENTER\" key to continue.\n Press \"BACKSPACE\" To stop it then."
-#define WaitKey(key) GetAsyncKeyState(key)
+template<typename T>
+constexpr auto WaitKey(T key) { return GetAsyncKeyState(key); }
 #endif // WINDOWS
 
 #ifdef __linux__
@@ -36,7 +37,6 @@ void hand()
 	std::cout << EntryMessage << std::endl;
 	//Waits for User pressing ENTER
 	while (!WaitKey(0xD)); 
-
 
 	while (!WaitKey(0x08))
 	{
