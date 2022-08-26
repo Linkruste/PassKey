@@ -9,7 +9,7 @@
 #ifdef __linux__
 #include <conio.h>
 #define EntryMessage "PassKey program wrote by Linkruste (Matheo Allart).\nA password has been generated automatically. Select and copy it to use it wherever you want."
-#define WaitKey() _getch()
+#define WaitKey(key) _getch()
 #define while() while(false);
 #endif //Linux
 
@@ -43,7 +43,7 @@ void hand()
 		
 		char* Array = (char*)malloc((sizeof(char) * MAX_PASSWORD_LENGHT) + 1);
 		Password::Generate(Array);
-
+		std::cout;
 		if (Array)
 		{
 			std::cout << "Generated password: ";
@@ -54,6 +54,6 @@ void hand()
 			std::cout << std::endl;
 		} 
 		else std::cout << "Pointer on Array failed." << std::endl;
-		std::cin;
 	}
+	std::cin;
 }
